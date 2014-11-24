@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <bean id="dataSourceLogistic" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc.url}" />
+        <property name="user" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="maxPoolSize" value="50" />
+        <property name="acquireIncrement" value="10" />entityManagerFactoryLogistic
+        <property name="maxStatements" value="0" />
+        <property name="maxStatementsPerConnection" value="0" />
+        <property name="initialPoolSize" value="${jdbc.initialPoolSize:5}" />
+        <property name="idleConnectionTestPeriod" value="10800" />
+        <property name="maxIdleTime" value="21600" />
+        <property name="unreturnedConnectionTimeout" value="600000" />
+        <property name="debugUnreturnedConnectionStackTraces" value="false" />
+    </bean>
+
+    <bean id="entityManagerFactoryLogistic" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSourceLogistic" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean>
+        </property>
+
+        <property name="jpaPropertyMap">
+            <map>
+                <entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto=}"></entry>
+                <entry key="hibernate.showSql" value="${hibernate.showSql}"></entry>
+                <entry key="hibernate.formatSql" value="${hibernate.formatSql}"></entry>
+                <entry key="hibernate.generateStatistics" value="${hibernate.generateStatistics}"></entry>
+                <entry key="hibernate.maxFetchDepth" value="${hibernate.maxFetchDepth}"></entry>
+                <entry key="hibernate.default_batch_fetch_size" value="${hibernate.default_batch_fetch_size}"></entry>
+                <entry key="hibernate.jdbcBatchSize" value="${hibernate.jdbcBatchSize}"></entry>
+                <entry key="hibernate.useQueryCache" value="${hibernate.useQueryCache}"></entry>
+                <entry key="hibernate.useSecondLevelCache" value="${hibernate.useSecondLevelCache}"></entry>
+                <entry key="hibernate.cache.use_second_level_cache" value="${hibernate.cache.use_second_level_cache}"></entry>
+                <entry key="hibernate.cache.use_query_cache" value="${hibernate.cache.use_query_cache}"></entry>
+                <entry key="hibernate.cache.region.factory_class=" value="${hibernate.cache.region.factory_class=}"></entry>
+                <entry key="hibernate.connection.pool_size" value="${hibernate.connection.pool_size}"></entry>
+                <entry key="hibernate.default_schema" value="${hibernate.defaultSchema}" />
+                <entry key="hibernate.ejb.naming_strategy" value="${hibernate.namingStrategy}" />
+            </map>
+        </property>
+
+        <property name="packagesToScan">
+            <list>
+                <value>${jpa.entityPackage}</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="transactionManagerLogistic" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactoryLogistic" />
+    </bean>
+</beans>

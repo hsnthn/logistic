@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Logistic.Common/ClaimerSaglikHasar.Commons.iml" filepath="$PROJECT_DIR$/Logistic.Common/ClaimerSaglikHasar.Commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Logistic.Business/Logistic.Business.iml" filepath="$PROJECT_DIR$/Logistic.Business/Logistic.Business.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Logistic.Common/Logistic.Common.iml" filepath="$PROJECT_DIR$/Logistic.Common/Logistic.Common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Logistic.Dao/Logistic.Dao.iml" filepath="$PROJECT_DIR$/Logistic.Dao/Logistic.Dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Logistic.Model/Logistic.Model.iml" filepath="$PROJECT_DIR$/Logistic.Model/Logistic.Model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Logistic.UI/Logistic.UI.iml" filepath="$PROJECT_DIR$/Logistic.UI/Logistic.UI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Logistic.WebService/Logistic.WebService.iml" filepath="$PROJECT_DIR$/Logistic.WebService/Logistic.WebService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LogisticManagemet.iml" filepath="$PROJECT_DIR$/LogisticManagemet.iml" />
+    </modules>
+  </component>
+</project>
+
